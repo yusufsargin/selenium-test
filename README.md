@@ -1,4 +1,4 @@
-# selenium-test
+# Webonline Login And Logout Selenium Automation test project
 
 - You should set your username and password in the src/main/resources/properties
 
