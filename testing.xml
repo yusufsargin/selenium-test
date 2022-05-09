@@ -3,21 +3,14 @@
     <test name="Firefox testing">
         <parameter name="browser-type" value="firefox"></parameter>
         <classes>
-            <class name="com.ceng.webonline.WebonlineLoginTest"></class>
+            <class name="com.ceng.webonline.WebOnlineTestFactory"></class>
         </classes>
     </test>
 
     <test name="Chrome testing">
         <parameter name="browser-type" value="chrome"></parameter>
         <classes>
-            <class name="com.ceng.webonline.WebonlineLoginTest"></class>
+            <class name="com.ceng.webonline.WebOnlineTestFactory"></class>
         </classes>
     </test>
-
-<!--    <test name="Edge testing">-->
-<!--        <parameter name="browser-type" value="edge"></parameter>-->
-<!--        <classes>-->
-<!--            <class name="com.ceng.webonline.WebonlineLoginTest"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>

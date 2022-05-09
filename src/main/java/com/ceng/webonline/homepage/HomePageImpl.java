@@ -27,6 +27,7 @@ public class HomePageImpl extends LoadableComponent<HomePageImpl> implements IHo
 
     @Override
     protected void isLoaded() throws Error {
+        System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(driver.getCurrentUrl(), PAGE_URL, "Should match");
     }
 
