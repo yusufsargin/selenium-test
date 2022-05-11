@@ -1,9 +1,8 @@
 package com.ceng.webonline;
 
 import com.ceng.shared.PreTest;
-import com.ceng.shared.Property;
 import com.ceng.webonline.homepage.HomePageImpl;
-import com.ceng.webonline.login.LoginImpl;
+import com.ceng.webonline.login.LoginPageImpl;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -13,7 +12,13 @@ import java.time.Duration;
 
 public class WebonlineLoginTest extends PreTest {
     protected HomePageImpl homePage;
-    protected LoginImpl login;
+    protected LoginPageImpl login;
+
+    @BeforeClass
+    public void setUpLogin(){
+        //this.login = new LoginImpl(this.driver).get();
+        this.login = new LoginPageImpl(this.driver).get();
+    }
 
     @DataProvider(name = "user-info-provider")
     public Object[][] dataProviderMethod() {
@@ -22,11 +27,8 @@ public class WebonlineLoginTest extends PreTest {
 
     @Test(description = "Login Webonline",priority = 0)
     public void webOnlineLoginTest(){
-        this.login = new LoginImpl(this.driver).get();
-        homePage = login.login(property.getProperty("webonline.username"),property.getProperty("webonline.password"));
+        homePage = login.loginWithCorrectInfo(property.getProperty("webonline.username"),property.getProperty("webonline.password"));
     }
-
-
 
     @Test(description = "After login logout test",priority = 1)
     public void webOnlineLogoutTest(){
@@ -45,8 +47,7 @@ public class WebonlineLoginTest extends PreTest {
 
     @Test(description = "Login with wrong info", priority = 2, dataProvider = "user-info-provider")
     public void webOnlineLoginWithWrongInfo(String username,String password){
-        this.login = new LoginImpl(this.driver).get();
-        this.login.loginWithWrong(username,password);
+        this.login.loginWithWrongInfo(username,password);
     }
 
     @AfterClass

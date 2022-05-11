@@ -1,8 +1,6 @@
 package com.ceng.webonline.homepage;
 
 import com.ceng.shared.Property;
-import com.ceng.webonline.coursepage.CoursePageImpl;
-import com.ceng.webonline.coursepage.ICoursePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -39,10 +37,5 @@ public class HomePageImpl extends LoadableComponent<HomePageImpl> implements IHo
         } catch (NoSuchElementException noSuchElementException) {
             return false;
         }
-    }
-
-    @Override
-    public ICoursePage goToCoursePage(int courseId) {
-        return new CoursePageImpl(this.driver,courseId);
     }
 }
